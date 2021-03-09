@@ -101,11 +101,10 @@ class _MyAppState extends State<MyApp> {
 
   Future downloadFile() async {
     print('download1');
-    PermissionStatus permission = await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
+    PermissionStatus permission = await Permission.storage.status;
 
     if (permission != PermissionStatus.granted) {
-      await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+      await Permission.storage.request();
       await startDownload();
     } else {
       await startDownload();
