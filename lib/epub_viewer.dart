@@ -29,7 +29,7 @@ class EpubViewer {
       EpubScrollDirection scrollDirection = EpubScrollDirection.ALLDIRECTIONS,
       bool allowSharing = false,
       bool enableTts = false}) async {
-    Map<String, dynamic> agrs = {
+    Map<String, dynamic> args = {
       "identifier": identifier,
       "themeColor": Util.getHexFromColor(themeColor),
       "scrollDirection": Util.getDirection(scrollDirection),
@@ -37,7 +37,7 @@ class EpubViewer {
       'enableTts': enableTts,
       'nightMode': nightMode
     };
-    await _channel.invokeMethod('setConfig', agrs);
+    await _channel.invokeMethod('setConfig', args);
   }
 
   /// bookPath should be a local file.
